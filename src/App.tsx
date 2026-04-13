@@ -50,7 +50,8 @@ const Navbar = ({ onOpenInspiracion }: { onOpenInspiracion: () => void }) => {
         <div className="hidden md:flex">
           <button 
             onClick={onOpenInspiracion}
-            className="text-xs font-mono uppercase tracking-widest text-vibe-purple hover:text-black transition-colors font-bold"
+            className="rounded-full border border-vibe-purple/25 bg-vibe-purple/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.45em] text-vibe-purple transition-all hover:bg-vibe-purple/10 hover:shadow-sm"
+            type="button"
           >
             Inspiración
           </button>
@@ -82,11 +83,12 @@ const Navbar = ({ onOpenInspiracion }: { onOpenInspiracion: () => void }) => {
             <a href="#paradigma" onClick={() => setIsOpen(false)} className="py-2 border-b border-black/5">Paradigma</a>
             <a href="#conclusion" onClick={() => setIsOpen(false)} className="py-2 border-b border-black/5">Conclusión</a>
             <button 
+              type="button"
               onClick={() => {
                 setIsOpen(false);
                 onOpenInspiracion();
               }} 
-              className="py-2 border-b border-black/5 text-left text-vibe-purple font-bold"
+              className="py-3 text-left text-vibe-purple font-bold uppercase tracking-[0.35em] transition-colors hover:text-black"
             >
               Inspiración
             </button>
@@ -493,20 +495,22 @@ const ParadigmaSection = () => {
 
         <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 mb-12 md:mb-16">
           <button 
+            type="button"
             onClick={() => setMode('tradicional')}
-            className={`px-6 md:px-8 py-3 md:py-4 rounded-full font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all ${mode === 'tradicional' ? 'bg-black text-white' : 'border border-black/10 text-black hover:border-black'}`}
+            className={`px-6 md:px-8 py-3 md:py-4 rounded-full font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all shadow-sm ${mode === 'tradicional' ? 'bg-black text-white ring-2 ring-black/10' : 'bg-white border border-black/10 text-black hover:border-black hover:text-black'}`}
           >
             <Terminal className="w-3 h-3 md:w-4 md:h-4 inline-block mr-2" /> Tradicional
           </button>
           <button 
+            type="button"
             onClick={() => setMode('asistida')}
-            className={`px-6 md:px-8 py-3 md:py-4 rounded-full font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all ${mode === 'asistida' ? 'bg-vibe-purple text-white' : 'border border-black/10 text-black hover:border-vibe-purple'}`}
+            className={`px-6 md:px-8 py-3 md:py-4 rounded-full font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all shadow-sm ${mode === 'asistida' ? 'bg-vibe-purple text-white ring-2 ring-vibe-purple/40 shadow-lg' : 'bg-white border border-black/10 text-black hover:border-vibe-purple hover:text-vibe-purple'}`}
           >
             <Sparkles className="w-3 h-3 md:w-4 md:h-4 inline-block mr-2" /> Asistida (IA)
           </button>
         </div>
 
-        <div className={`p-6 md:p-12 transition-all duration-500 ${mode === 'tradicional' ? 'brutal-border bg-white text-black' : 'glass-card bg-black/10 text-black font-medium'}`}>
+        <div className={`p-6 md:p-12 transition-all duration-500 ${mode === 'tradicional' ? 'brutal-border bg-white text-black' : 'glass-card bg-white/90 text-black font-medium shadow-xl'}`}>
           <div className="space-y-6 md:space-y-8 text-left">
             {mode === 'tradicional' ? (
               <>
@@ -590,14 +594,18 @@ const InspiracionSection = ({ onClose }: { onClose: () => void }) => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-6 max-w-xl">
+        <div className="grid gap-6 max-w-xl sm:grid-cols-2">
           {items.map((item) => (
             <button 
+              type="button"
               key={item.id}
               onClick={() => setSelectedScreenshot(item.image)}
-              className="glass-card p-8 border border-black/5 bg-white text-left transition-all hover:border-vibe-purple/30 group flex justify-between items-center"
+              className="glass-card p-8 border border-black/10 bg-white/95 text-left transition-all duration-300 hover:-translate-y-1 hover:border-vibe-purple/30 hover:shadow-xl group"
             >
-              <span className="text-xl font-bold uppercase tracking-tight text-black">{item.title}</span>
+              <div>
+                <p className="text-[11px] font-mono uppercase tracking-[0.35em] text-vibe-purple/80 mb-3">Captura</p>
+                <h3 className="text-xl font-bold uppercase tracking-tight text-black">{item.title}</h3>
+              </div>
               <ChevronRight className="w-6 h-6 text-vibe-purple group-hover:translate-x-2 transition-transform" />
             </button>
           ))}
