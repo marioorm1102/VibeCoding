@@ -107,7 +107,7 @@ const Hero = () => {
   return (
     <section 
       style={{ height: '361.333px', marginBottom: '-62px' }}
-      className="relative flex flex-col justify-center items-center overflow-hidden px-4 md:px-6 bg-white pt-16 md:pt-24"
+      className="relative flex flex-col justify-center items-center overflow-hidden px-4 md:px-6 bg-white pt-20 md:pt-32"
     >
       <motion.div 
         style={{ y: y1, opacity }}
@@ -512,12 +512,9 @@ const ParadigmaSection = () => {
           <button 
             type="button"
             onClick={() => setMode('asistida')}
-            className={`px-6 md:px-8 py-3 md:py-4 rounded-full font-mono text-xs md:text-sm uppercase tracking-widest transition-all shadow-sm relative ${mode === 'asistida' ? 'bg-gradient-to-r from-vibe-purple to-vibe-purple/90 text-white ring-4 ring-vibe-purple/50 shadow-2xl scale-105 border-2 border-vibe-neon/50' : 'bg-white border border-black/10 text-black hover:border-vibe-purple hover:text-vibe-purple'}`}
+            className={`px-6 md:px-8 py-3 md:py-4 rounded-full font-mono text-xs md:text-sm uppercase tracking-widest transition-all shadow-sm relative ${mode === 'asistida' ? 'bg-black text-white ring-2 ring-black/20' : 'bg-white border border-black/10 text-black hover:border-vibe-purple hover:text-vibe-purple'}`}
           >
-            <Sparkles className={`w-4 h-4 md:w-5 md:h-5 inline-block mr-2 transition-all ${mode === 'asistida' ? 'animate-pulse text-vibe-neon' : ''}`} /> Asistida (IA)
-            {mode === 'asistida' && (
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-vibe-neon rounded-full animate-ping border border-white"></div>
-            )}
+            <Sparkles className="w-4 h-4 md:w-5 md:h-5 inline-block mr-2" /> Asistida (IA)
           </button>
         </div>
 
