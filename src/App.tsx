@@ -22,6 +22,8 @@ import {
   Box,
   Image as ImageIcon
 } from 'lucide-react';
+import screenshotDefinicion from './assets/Screenshot_20260413_110446_Google.jpg';
+import screenshotEvolucion from './assets/Screenshot_20260413_110657_Chrome.jpg';
 
 // --- Components ---
 
@@ -555,12 +557,12 @@ const InspiracionSection = ({ onClose }: { onClose: () => void }) => {
     {
       id: 'definicion',
       title: "Definición y origen",
-      image: "Screenshot_20260413_110446_Google.jpg"
+      image: screenshotDefinicion
     },
     {
       id: 'evolucion',
       title: "Evolución del programador",
-      image: "Screenshot_20260413_110657_Chrome.jpg"
+      image: screenshotEvolucion
     }
   ];
 
