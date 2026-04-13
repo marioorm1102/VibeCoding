@@ -4,7 +4,7 @@
  */
 
 import { useState } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { 
   Zap, 
   Code2, 
