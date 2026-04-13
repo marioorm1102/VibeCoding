@@ -32,7 +32,7 @@ const Navbar = ({ onOpenInspiracion }: { onOpenInspiracion: () => void }) => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
-      <div className="max-w-7xl mx-auto px-6 py-4 md:py-8 flex justify-between items-center">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-8 flex justify-between items-center">
         {/* Brand/Logo - Removed as requested */}
         <div className="flex items-center gap-2">
           {/* Empty div to maintain layout if needed, or just remove */}
@@ -76,7 +76,7 @@ const Navbar = ({ onOpenInspiracion }: { onOpenInspiracion: () => void }) => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-full left-0 w-full bg-white border-b border-black/5 px-6 py-8 flex flex-col gap-6 text-sm font-mono uppercase tracking-widest text-black"
+            className="md:hidden absolute top-full left-0 w-full bg-white border-b border-black/5 px-4 md:px-6 py-6 md:py-8 flex flex-col gap-6 text-sm font-mono uppercase tracking-widest text-black"
           >
             <a href="#definicion" onClick={() => setIsOpen(false)} className="py-2 border-b border-black/5">Definición</a>
             <a href="#herramientas" onClick={() => setIsOpen(false)} className="py-2 border-b border-black/5">Herramientas</a>
@@ -107,7 +107,7 @@ const Hero = () => {
   return (
     <section 
       style={{ height: '361.333px', marginTop: '42px', marginBottom: '-62px' }}
-      className="relative flex flex-col justify-center items-center overflow-hidden px-6 bg-white"
+      className="relative flex flex-col justify-center items-center overflow-hidden px-4 md:px-6 bg-white"
     >
       <motion.div 
         style={{ y: y1, opacity }}
@@ -117,16 +117,24 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-vibe-neon/10 blur-[120px] rounded-full" />
       </motion.div>
 
-      <div className="z-10 text-center">
+      <div className="z-10 text-center max-w-4xl mx-auto">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-bold tracking-tight text-black"
+          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-display font-bold tracking-tight text-black leading-none mb-4 md:mb-8"
         >
           Vibe <br />
           Coding
         </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+          className="text-sm md:text-base font-mono uppercase tracking-[0.2em] text-vibe-purple/80"
+        >
+          Programación Asistida por IA
+        </motion.p>
       </div>
 
       <motion.div 
@@ -142,10 +150,10 @@ const Hero = () => {
 
 const DefinicionSection = () => {
   return (
-    <section id="definicion" className="py-20 md:py-32 px-6 max-w-7xl mx-auto border-t border-black/5">
-      <div className="mb-12 md:mb-20">
+    <section id="definicion" className="py-16 md:py-32 px-4 md:px-6 max-w-7xl mx-auto border-t border-black/5">
+      <div className="mb-8 md:mb-20">
         <p className="font-mono text-vibe-purple text-[10px] md:text-xs uppercase tracking-[0.3em] mb-4">¿Qué es el vibe coding?</p>
-        <h2 className="text-3xl md:text-6xl font-bold uppercase tracking-tighter text-black">Definición y Origen</h2>
+        <h2 className="text-2xl md:text-6xl font-bold uppercase tracking-tighter text-black">Definición y Origen</h2>
       </div>
       
       <div className="max-w-4xl space-y-8 text-lg md:text-xl font-normal text-black leading-relaxed">
@@ -376,7 +384,7 @@ const HerramientasSection = () => {
   ];
 
   return (
-    <section id="herramientas" className="py-20 md:py-32 px-6 bg-black/[0.02] relative">
+    <section id="herramientas" className="py-16 md:py-32 px-4 md:px-6 bg-black/[0.02] relative">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 md:mb-20">
           <p className="font-mono text-vibe-purple text-[10px] md:text-xs uppercase tracking-[0.3em] mb-4">Tecnología de Vanguardia</p>
@@ -486,7 +494,7 @@ const ParadigmaSection = () => {
   const [mode, setMode] = useState<'tradicional' | 'asistida'>('asistida');
 
   return (
-    <section id="paradigma" className="py-20 md:py-32 px-6 relative overflow-hidden bg-white border-t border-black/5">
+    <section id="paradigma" className="py-16 md:py-32 px-4 md:px-6 relative overflow-hidden bg-white border-t border-black/5">
       <div className="max-w-4xl mx-auto relative z-10 text-center">
         <p className="font-mono text-vibe-purple text-[10px] md:text-xs uppercase tracking-[0.3em] mb-4">Evolución del Desarrollo</p>
         <h2 className="text-3xl md:text-6xl font-bold uppercase mb-8 md:mb-12 tracking-tighter text-black">
@@ -504,9 +512,12 @@ const ParadigmaSection = () => {
           <button 
             type="button"
             onClick={() => setMode('asistida')}
-            className={`px-6 md:px-8 py-3 md:py-4 rounded-full font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all shadow-sm ${mode === 'asistida' ? 'bg-vibe-purple text-white ring-2 ring-vibe-purple/40 shadow-lg' : 'bg-white border border-black/10 text-black hover:border-vibe-purple hover:text-vibe-purple'}`}
+            className={`px-6 md:px-8 py-3 md:py-4 rounded-full font-mono text-[10px] md:text-xs uppercase tracking-widest transition-all shadow-sm relative ${mode === 'asistida' ? 'bg-vibe-purple text-white ring-4 ring-vibe-purple/30 shadow-xl scale-105' : 'bg-white border border-black/10 text-black hover:border-vibe-purple hover:text-vibe-purple'}`}
           >
-            <Sparkles className="w-3 h-3 md:w-4 md:h-4 inline-block mr-2" /> Asistida (IA)
+            <Sparkles className={`w-3 h-3 md:w-4 md:h-4 inline-block mr-2 transition-transform ${mode === 'asistida' ? 'animate-pulse' : ''}`} /> Asistida (IA)
+            {mode === 'asistida' && (
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-vibe-neon rounded-full animate-ping"></div>
+            )}
           </button>
         </div>
 
@@ -578,7 +589,7 @@ const InspiracionSection = ({ onClose }: { onClose: () => void }) => {
       transition={{ type: 'spring', damping: 25, stiffness: 200 }}
       className="fixed inset-0 z-[70] bg-white overflow-y-auto"
     >
-      <div className="max-w-7xl mx-auto px-6 py-20 md:py-32">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-32">
         <button
           onClick={onClose}
           className="mb-12 flex items-center gap-2 text-vibe-purple font-mono text-xs uppercase tracking-widest hover:gap-4 transition-all"
@@ -650,7 +661,7 @@ const InspiracionSection = ({ onClose }: { onClose: () => void }) => {
 
 const ConclusionSection = () => {
   return (
-    <section id="conclusion" className="py-20 md:py-32 px-6 max-w-5xl mx-auto">
+    <section id="conclusion" className="py-16 md:py-32 px-4 md:px-6 max-w-5xl mx-auto">
       <div className="text-center mb-12 md:mb-16">
         <div className="w-12 h-12 md:w-16 md:h-16 bg-vibe-purple/10 rounded-full flex items-center justify-center text-vibe-purple mx-auto mb-6">
           <MessageSquare className="w-6 h-6 md:w-8 md:h-8" />
