@@ -107,7 +107,7 @@ const Hero = () => {
   return (
     <section 
       style={{ height: '361.333px', marginBottom: '-62px' }}
-      className="relative flex flex-col justify-center items-center overflow-hidden px-4 md:px-6 bg-white pt-20 md:pt-32"
+      className="relative flex flex-col justify-center items-center overflow-hidden px-4 md:px-6 bg-white pt-24 md:pt-40"
     >
       <motion.div 
         style={{ y: y1, opacity }}
